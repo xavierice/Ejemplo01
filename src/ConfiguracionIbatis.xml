@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMapConfig
+   PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
+   "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+	<transactionManager type="JDBC">
+		<dataSource type="SIMPLE">
+			<property name="JDBC.Driver" value="com.mysql.jdbc.Driver" />
+			<property name="JDBC.ConnectionURL" value="jdbc:mysql://localhost:3306/nuera" />
+			<property name="JDBC.Username" value="root" />
+			<property name="JDBC.Password" value="mysql" />
+		</dataSource>
+	</transactionManager>
+	<sqlMap resource="ibatis/Area.xml" />
+	<sqlMap resource="ibatis/Requisitos.xml" />
+    <sqlMap resource="ibatis/Asunto.xml" />
+    <sqlMap resource="ibatis/Usuario.xml" />
+    <sqlMap resource="ibatis/Persona.xml" />
+    <sqlMap resource="ibatis/Combos.xml" />
+    <sqlMap resource="ibatis/Llamada.xml" />
+    <sqlMap resource="ibatis/Documento.xml"></sqlMap>
+    <sqlMap resource="ibatis/Movimiento.xml"></sqlMap>
+</sqlMapConfig>
+

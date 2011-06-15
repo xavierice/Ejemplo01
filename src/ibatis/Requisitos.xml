@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap 
+   PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+   "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap>
+	<select id="getRequisito" resultClass="bean.RequisitoDTO">
+		SELECT
+		cod_requisito as cod_requisito,
+		desc_requisito as desc_requisito,
+		status as status
+		FROM tb_requisito
+		WHERE cod_requisito = #VALOR#
+	</select>
+
+	<select id="getRequisitos" resultClass="bean.RequisitoDTO">
+		SELECT
+		cod_requisito as cod_requisito,
+		desc_requisito as desc_requisito,
+		status as status
+		FROM tb_requisito where desc_requisito like '%'
+	</select>
+	
+	
+	
+	<insert id="insertRequisito">
+	INSERT INTO tb_requisito VALUES ( 
+	#cod_requisito#,
+	#desc_requisito#,
+	#status#)
+	</insert>
+	
+	 <update id="updateRequisito" parameterClass="bean.RequisitoDTO">
+	UPDATE  tb_requisito SET 
+	desc_requisito = #desc_requisito#,
+	status = #status#
+	WHERE
+	cod_requisito=#cod_requisito#
+	</update>
+
+	<select id="getReqxTram" resultClass="bean.RequisitoDTO">
+		SELECT t.cod_requisito,r.desc_requisito FROM tb_detalle_asunto_requisito t inner join tb_requisito r
+on t.cod_requisito = r.cod_requisito
+where t.codigo_tramite =  #VALOR#
+	</select>
+
+</sqlMap>

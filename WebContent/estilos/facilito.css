@@ -1,0 +1,134 @@
+/* Estilos - General */
+
+
+.titulo {
+  color: #2F8DBB;
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.error_general {
+	color: #990033;
+	font-family: Verdana, Helvetica, Arial;
+	font-size: 13px;
+}
+
+.error_en_campo {
+	color: #996600;
+	font-family: Verdana, Helvetica, Arial;
+	font-size: 11px;
+}
+
+.etiqueta {
+  color: #190718;
+  font-family: Verdana, Helvetica, Arial;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.control {
+  color: #000033;
+  font-family: Verdana, Helvetica, Arial;
+  font-weight: normal;
+  font-size: 11px;
+}
+
+.boton {
+  color: #000033;
+  font-family: Verdana, Helvetica, Arial;
+  font-weight: normal;
+  font-size:11px;
+  width: 100px;
+  height: 25px;
+}
+
+/* Estilos - Pagina Login */
+
+.loginTitle {
+  color: #D8EAF1;
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 20px;
+}
+
+.loginLabel {
+  background-color: #D8EAF1;
+  color: #D8EAF1;
+  font-family: Verdana, Helvetica, Arial;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.loginControl {
+  color: #D8EAF1;
+  font-family: Verdana, Helvetica, Arial;
+  font-weight: normal;
+  font-size: 11px;
+}
+
+.loginButton {
+  color: #D8EAF1;
+  font-family: Verdana, Helvetica, Arial;
+  font-weight: normal;
+  font-size:11px;
+  width: 100px;
+  height: 25px;
+}
+
+/* Estilos - Grid */
+
+.grilla_titulo {
+  color: #003366;
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.grilla_cabecera {
+  background-color: #003366;
+  color: #FFFFFF;
+  font-family: Verdana, Helvetica, Arial;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.grilla_campo {
+  color: #003366;
+  font-family: Verdana, Helvetica, Arial;
+  font-weight: normal;
+  font-size: 10px;
+}
+#nav {
+	list-style: none;
+	padding: 0;
+	margin: 10px 0 20px 0;
+	background: #2e2e2e url(images/nav_bar.jpg) repeat-x;
+	display: block;
+	overflow: hidden;
+	font-size: 0.9em;
+	height:33px;
+	text-transform:capitalize;
+}
+#nav li {
+	display: inline;
+}
+#nav li a {
+	display: block;
+	float: left;
+	padding: 10px 20px;
+	color: white;
+	text-decoration: none;
+}
+#nav li a:hover {
+	background: #1b1b1b url(images/nav_bar_o.jpg) repeat-x;
+}
+#load {
+	display: none;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	background: url(images/ajax-loader.gif);
+	width: 43px;
+	height: 11px;
+	text-indent: -9999em;
+}

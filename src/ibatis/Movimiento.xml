@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap 
+   PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+   "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap>
+	
+<select id="getMovimiento" resultClass="bean.MovimientoDTO">
+		SELECT
+		cod_movimiento as cod_movimiento,
+		cod_documento as cod_documento,
+		area_origen as area_origen,
+		area_destino as area_destino,
+		fecha_recepcion as fecha_recepcion,
+		fecha_salida as fecha_salida,
+		usuario_receptor as usuario_receptor,
+		usuario_salida as usuario_salida,
+		cod_accion as cod_accion
+		FROM tb_movimiento
+		WHERE cod_movimiento = #VALOR#
+	</select>
+	
+	<select id="GetForanea" resultClass="bean.MovimientoDTO">
+	SELECT t.cod_documento from tb_movimiento t left join tb_documento d
+	on d.cod_documento=t.cod_movimiento where cod_movimiento= #VALOR#
+	
+	</select>
+	
+	<select id="GetForeign" resultClass="bean.MovimientoDTO">
+	SELECT t.cod_accion from tb_movimiento t left join tb_accion a
+	on a.cod_accion=t.cod_accion where cod_accion= #VALOR#
+	
+	</select>
+	
+	
+	<insert id="insertMovimientoFK">
+	INSERT INTO tb_movimiento VALUES ( 
+	#cod_movimiento#,
+	#cod_documento#,
+	#area_origen#,
+	#area_destino#,
+	#fecha_recepcion#,
+	#fecha_salida#,
+	#usuario_receptor#,
+	#usuario_salida#,
+	#cod_accion#)
+	</insert>
+	
+	<select id="getMovimientos" resultClass="bean.MovimientoDTO">
+	SELECT
+     * from tb_movimiento m
+       INNER JOIN tb_documento d
+       on m.cod_documento = d.cod_documento
+       INNER JOIN tb_acciones a
+        on a.cod_accion=m.cod_accion
+		</select>
+	
+   <select id="getTramites" resultClass="bean.AsuntoDTO">
+	 SELECT
+	    * from tb_persona p
+ INNER JOIN tb_documento d
+   on p.cod_persona=d.cod_persona
+INNER JOIN tb_estado e
+  on e.cod_estado=d.cod_estado
+INNER JOIN tb_asuntotupa a
+on a.codigo_tramite = d.codigo_tramite
+	</select>
+	
+
+	
+	
+</sqlMap>

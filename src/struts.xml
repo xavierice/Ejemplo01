@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+
+    <package name="default" namespace="/" extends="tiles-default" >
+    
+ 		<!--  creamos un action de atajo -->
+		<action name="a_bienvenida"   >
+			 <result type="tiles">d_bienvenida</result>	
+		</action>
+		<action name="a_nuevoCliente">
+			<result type="tiles">d_nuevoCliente</result>
+		</action>
+
+		<action name="a_logueo"   >
+			 <result  > /logueo.jsp  </result>	
+		</action>
+
+		<action name="a_listado"   >
+			 <result  type="tiles"> d_listado  </result>	
+		</action>
+		
+		<action name="ar_listado"   >
+			 <result  type="tiles"> ar_listado  </result>	
+		</action>
+ 
+        <action name="a_derivado"   >
+			 <result  type="tiles"> d_derivado  </result>	
+		</action>
+ 
+ 
+ <!-- action del logueo -->
+
+		<action name="logueo" class="action.LogueoAction"	>
+			<result name="error">/logueo.jsp</result>
+			<result name="exito" type="redirect">a_bienvenida</result>
+		</action>
+		
+ <!-- action de la clase cliente-->
+		<action name="listaClientes" class="action.ClienteAction" method="lista">
+			<result name="exito">/listado.jsp</result>
+		</action>
+
+		<action name="ingresaCliente" class="action.ClienteAction" method="registra">
+			<result name="exito">/listado.jsp</result>
+		</action>
+
+    	<action name="cargaModificaCliente" class="action.ClienteAction" method="cargaModifica">
+    		<result name="exito">/modificaCliente.jsp</result>
+    	</action>
+    	
+    	<action name="actualizaCliente" class="action.ClienteAction" method="actualiza">
+    	<result name="exito">/listado.jsp </result>
+    	</action>
+    	   
+    	
+    	<!-- action de la clase area -->
+    	<action name="ingresaArea" class="action.AreaAction" method="registra">
+    		<result name="exito">/listadoArea.jsp</result>
+    	</action>
+    	
+    	<action name="listaArea" class="action.AreaAction" method="lista">
+    		<result name="exito">/listadoArea.jsp</result>
+    	</action>
+    	
+    	<action name="cargaModificaArea" class="action.AreaAction" method="cargaModifica">
+    		<result name="exito">/modificaArea.jsp</result>
+    	</action>
+    	
+    	<action name="modificaArea" method="actualiza" class="action.AreaAction">
+			<result name="exito">/listadoArea.jsp</result>
+		</action>
+    	
+    	<!-- action de la clase requisito -->
+    	
+    	<action name="ingresaRequisito" class="action.RequisitoAction" method="registra">
+    		<result name="exito">/listadoRequisitos.jsp</result>
+    	</action>
+    	
+    	<action name="listaRequisito" class="action.RequisitoAction" method="lista">
+    		<result name="exito">/listadoRequisitos.jsp</result>
+    	</action>
+    	
+    	<action name="cargaModificaRequisito" class="action.RequisitoAction" method="cargaModifica">
+    		<result name="exito">/modificaRequisito.jsp</result>
+    	</action>
+    	
+    	<action name="modificaRequisito" class="action.RequisitoAction" method="actualiza">
+			<result name="exito">/listadoRequisitos.jsp</result>
+		</action>
+    	
+    	
+    	<!-- action de la clase asunto -->
+    	<action name="ingresaAsunto" class="action.AsuntoAction" method="registra">
+    		<result name="exito">/listadoAsunto.jsp</result>
+    	</action>
+
+    	<action name="listaAsunto" class="action.AsuntoAction" method="lista">
+    		<result name="exito">/listadoAsunto.jsp</result>
+    	</action>
+    	
+    	<action name="cargaModificaAsunto" class="action.AsuntoAction" method="cargaModifica">
+    		<result name="exito">/modificaAsuntoTUPA.jsp</result>
+    	</action>
+    	
+    		<action name="cargaAgregaRequisitoAsunto" class="action.AsuntoAction" method="cargaAgregaRequisito">
+    		<result name="exito">/agregaReqAsunto.jsp</result>
+    	</action>
+    
+    	<action name="actualizaAsunto" class="action.AreaAction" method="cargaModifica">
+    		<result name="exito">/listadoAsunto.jsp</result>
+    	</action>
+    	
+    	
+    	<action name="insertaRequisitoAsunto" class="action.AsuntoAction" method="insertaRequisitoAsunto">
+    		<result name="exito" >/listadoAsunto.jsp</result>
+    	</action>
+    	
+    	
+          <!-- action de la clase persona -->
+        <action name="ingresaPersona" class="action.PersonaAction" method="registra">
+    		<result name="exito">/listadoPersonas.jsp</result>
+    	</action>
+    	
+    	<action name="listaPersonas" class="action.PersonaAction" method="lista">
+    		<result name="exito">/listadoPersonas.jsp</result>
+    	</action>
+    	
+    	<action name="cargaModificaPersona" class="action.PersonaAction" method="cargaModifica">
+    		<result name="exito">/modificaPersona.jsp</result>
+    	</action>
+    	
+    	<action name="buscaPersona" class="action.PersonaAction" method="buscarporDNI">
+    		<result name="exito">/RegistrarDocumento.jsp</result>
+    	</action>
+    
+        <action name="ingresaDocumento" class="action.DocumentoAction" method="registra">
+    		<result name="exito">/consultardocumento.jsp</result>
+    	</action>
+    	
+    	<action name="consultadocumento" class="action.DocumentoAction" method="lista">
+    		<result name="exito">/consultardocumento.jsp</result>
+    	</action>
+      
+      <action name="DerivarDocumento" class="action.MovimientoAction" method="registra">
+    		<result name="exito">/listadoBandeja.jsp</result>
+    	</action>
+    	
+    	   <action name="listaBandeja" class="action.DocumentoAction" method="listaPorArea">
+    		<result name="exito">/listadoBandeja.jsp</result>
+    	</action>
+    	
+    	      <action name="cargaVerDocumentos" class="action.DocumentoAction" method="cargaVerDocumentos">
+    		<result name="exito">/DerivarDocumento.jsp</result>
+    	</action>
+    	
+    	   <action name="cargaAgregarReqDocumento" class="action.DocumentoAction" method="cargaAgregarReqDocumento">
+    		<result name="exito">/cargaReqADocumento.jsp</result>
+    	</action>
+    	
+    	 <action name="subirImagen" class="action.ImagenAction" method="subeImagen">
+    		<result name="exito">/subir.jsp</result>
+    	</action>
+    	 <action name="subirImagenaBD" class="action.ImagenAction" method="subeImagenaBD">
+    		<result name="exito">/subir.jsp</result>
+    	</action>
+    	
+    		
+    	<action name="cargaImagen" class="action.ImagenAction" method="insertaimagen" >
+			<result name="exito">/subir.jsp
+				
+			</result>
+		</action>
+		
+		<action name="verImagen" class="action.ImagenAction" method="mostrarImagen" >
+			<result name="exito">/verImagen.jsp</result>
+		</action>
+		
+    	
+    	<action name="buscaDocumentoxDNI" class="action.DocumentoAction" method="buscarporDNI">
+    		<result name="exito">/consultadocumento_usuario.jsp</result>
+    	</action>
+    	
+    	<action name="cargaImagenCliente" 
+				class="action.ImagenAction" 
+				method="recuperaImagen" >
+			<result name="exito" type="stream" >
+				<!--  en inputName colocamos el nombre del atributo del action	que permitira generar el flujo (stream) -->
+				<param name="inputName">imagen</param>
+			</result>
+		</action>
+    	
+    	
+    	
+    	 <!-- action de la clase llamada -->
+    	
+    	<action name="listaLlamadas" class="action.LlamadaAction" method="lista">
+    		<result name="exito">/listadoLlamadas.jsp</result>
+    	</action>
+    	<action name="escGrab" class="action.ImagenAction" method="mostrarImagen" >
+			<result name="exito">/verImagen.jsp</result>
+		</action>
+    	
+    	
+    </package>    
+
+</struts>

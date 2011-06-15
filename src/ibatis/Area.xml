@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap 
+   PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+   "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap>
+	
+<select id="getArea" resultClass="bean.AreaDTO">
+		SELECT
+		cod_area as cod_area,
+		nombre_area as nombre_area,
+		status as status
+		FROM tb_area
+		WHERE cod_area = #VALOR#
+	</select>
+	
+	<select id="getAreas" resultClass="bean.AreaDTO">
+		SELECT
+		cod_area as cod_area,
+		nombre_area as nombre_area,
+		status as status
+		FROM tb_area
+	</select>
+
+	<insert id="insertArea">
+	INSERT INTO tb_area VALUES ( 
+	#cod_area#,
+	#nombre_area#,
+	#status#)
+	</insert>
+	
+	<update id="updateArea" parameterClass="bean.AreaDTO">
+	update tb_area set 
+	nombre_area = #nombre_area#,
+	status = #status# 
+	WHERE
+	cod_area=#cod_area#
+	</update>
+	
+
+	
+</sqlMap>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap 
+   PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+   "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap>
+	
+<select id="getLlamada" resultClass="bean.LlamadaDTO" >
+		SELECT 
+		id as id,
+		llamada as llamada,
+		usuario as usuario,
+		fecha as fecha,
+		phonenumber as phonenumber,
+		fec as fec,
+		hora as hora,
+		anno as anno,
+		mes as mes,
+		dia as dia,
+		url as url
+		FROM llamadas
+		WHERE phonenumber = #VALOR#
+	</select>
+	
+	<select id="getLlamadasxFec" resultClass="bean.LlamadaDTO" parameterClass="bean.ClaseBusqueda">
+		SELECT 
+		id as id,
+		llamada as llamada,
+		usuario as usuario,
+		fecha as fecha,
+		phonenumber as phonenumber,
+		fec as fec,
+		hora as hora,
+		anno as anno,
+		mes as mes,
+		dia as dia,
+		url as url
+		FROM llamadas
+		WHERE phonenumber = #phonenumber# AND fecha between #fecha1# and #fecha2#
+	</select>
+	
+</sqlMap>

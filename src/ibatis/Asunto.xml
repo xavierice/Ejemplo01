@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap 
+   PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+   "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap>
+	<select id="getAsunto" resultClass="bean.AsuntoDTO">
+		SELECT
+		codigo_tramite as codigo_tramite,
+		descripcion as descripcion,
+		status as status
+		FROM tb_asuntotupa
+		WHERE codigo_tramite = #VALOR#
+	</select>
+
+	<select id="getAsuntos" resultClass="bean.AsuntoDTO">
+		SELECT
+		codigo_tramite as codigo_tramite,
+		descripcion as descripcion,
+		status as status
+		FROM tb_asuntotupa
+	</select>
+	
+	
+	
+	<insert id="insertAsunto">
+	INSERT INTO tb_asuntotupa VALUES ( 
+	#codigo_tramite#,
+	#descripcion#,
+	#status#)
+	</insert>
+	
+	
+		<update id="updateAsunto" parameterClass="bean.AsuntoDTO">
+	update tb_asuntotupa set 
+	descripcion = #descripcion#,
+	status = #status# 
+	WHERE
+	codigo_tramite=#codigo_tramite#
+	</update>
+	
+	 
+	<insert id="insertRequisitoAsunto">
+	INSERT INTO tb_detalle_asunto_requisito VALUES ( 
+	#codigo_tramite#,
+	#cod_requisito#)
+	</insert>
+	
+	
+</sqlMap>

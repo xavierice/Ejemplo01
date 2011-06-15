@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap 
+   PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+   "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap>
+	
+<select id="getUsuario" resultClass="bean.ClienteDTO">
+	SELECT
+id as id,
+codigo as codigo,
+nombres as nombres,
+apellidos as apellidos,
+agente as agente,
+status as status,
+password as password,
+fec_cre as fec_cre,
+tipo_usuario as tipo_usuario,
+id_grupo as id_grupo
+FROM
+users
+		WHERE codigo = #VALOR#
+	</select>
+	
+	<select id="getUsuarios" resultClass="bean.ClienteDTO">
+	id as id,
+codigo as codigo,
+nombres as nombres,
+apellidos as apellidos,
+agente as agente,
+status as status,
+password as password,
+fec_cre as fec_cre,
+tipo_usuario as tipo_usuario,
+id_grupo as id_grupo
+FROM
+users
+		
+	</select>
+
+	<insert id="insertUsuario">
+	INSERT INTO tb_usuario VALUES ( 
+	#codigo#,
+	#nombres#,
+	#apellidos#,
+	#agente#,
+	#status#,
+	#password#,
+	#fec_cre#,
+	#tipo_usuario#,
+	#id_grupo#)
+	</insert>
+	
+	
+</sqlMap>

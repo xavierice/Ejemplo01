@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap 
+   PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+   "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap>
+	<select id="getPersona" resultClass="bean.PersonaDTO">
+		SELECT
+		cod_persona as cod_persona,
+		nombre_persona as nombre_persona,
+		nro_documento as nro_documento,
+		direccion as direccion,
+		representante_legal as representante,
+		email as email,
+		telefono as telefono,
+		password as password
+		FROM tb_persona
+		WHERE cod_persona = #VALOR#
+	</select>
+	
+	<select id="getPersonaxDNI" resultClass="bean.PersonaDTO">
+		SELECT
+		cod_persona as cod_persona,
+		nombre_persona as nombre_persona,
+		nro_documento as nro_documento,
+		direccion as direccion,
+		representante_legal as representante,
+		email as email,
+		telefono as telefono,
+		password as password
+		FROM tb_persona
+		WHERE nro_documento = #VALOR#
+	</select>
+	
+	<select id="GetTipoPersona" resultClass="bean.PersonaDTO">
+	select * from tb_tipo_persona a left join tb_persona b
+	on a.cod_tip_persona=b.cod_tip_persona where cod_tip_persona= #VALOR#
+	</select>
+
+	<select id="getTipoDocumento" resultClass="bean.PersonaDTO">
+		select * from tb_tip_doc_persona t left join tb_persona p
+		on p.cod_tip_documento=t.cod_tip_documento where cod_tip_documento = #VALOR#
+			
+	</select>
+	
+	<insert id="insertPersonaFK">
+	INSERT INTO tb_persona VALUES ( 
+	#cod_persona#,
+	#nombre_persona#,
+	#cod_tip_persona#,
+	#cod_tip_documento#,
+	#nro_documento#,
+	#direccion#,
+	#representante_legal#,
+	#email#,
+	#telefono#,
+	#password#)
+	</insert>
+	
+	<select id="getPersonasIJ" resultClass="bean.PersonaDTO">
+	select * from tb_persona c inner join tb_tipo_persona e on c.cod_tip_persona=e.cod_tip_persona
+    inner join tb_tipo_doc_persona d on d.cod_tip_documento=c.cod_tip_documento
+	</select>
+	
+
+	
+</sqlMap>

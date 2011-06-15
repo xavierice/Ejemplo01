@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--  Este es un comentario    -->
+<!-- la etiqueta Context representa una zona de memoria que se crea
+cuando levantamos la aplicacion web. Esta zona de memoria estara "viva"
+mientras no reiniciemos la aplicacion web -->
+
+
+<Context path="/jee-sesion05"   >
+
+   <!--  registramos un recurso en esta zona de memoria
+   (El servletContext). En este caso
+   un pool de conexiones, es un nombre JDNI -->
+	<!-- en este caso el servidor da la autorizacion  -->
+   <Resource 
+   
+    name="nomerindo" 
+    auth="Container" 
+    type="javax.sql.DataSource"
+    maxActive="100" 
+    maxIdle="30" 
+    maxWait="10000"
+    username="root" 
+    password="mysql" 
+    driverClassName="com.mysql.jdbc.Driver"
+    url="jdbc:mysql://localhost:3306/nuera"/>
+    
+    
+</Context>
