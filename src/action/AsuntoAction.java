@@ -21,7 +21,7 @@ public class AsuntoAction extends ActionSupport {
 	declaracion de variables 
 	 */
 	private static final long serialVersionUID = 1L;
-	 
+	 dasda
 	private AsuntoDTO asunto;
 	private RequisitoDTO requisito;
 	private List<AsuntoDTO> asuntos;
