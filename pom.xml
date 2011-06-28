@@ -4,6 +4,5 @@
   <artifactId>ProyectoNueraTelecom</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  <name>ProyectoNueraTelecom</name>
   <description>Proyecto demo</description>
 </project>
